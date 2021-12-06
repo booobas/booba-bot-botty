@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+version '1.0'
+
+def jdaVersion = '5.0.0-alpha.2'
+
+group 'de.booba.bots.botty'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter();
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    implementation( "net.dv8tion:JDA:$jdaVersion")
+    implementation( group: 'mysql', name: 'mysql-connector-java', version: '8.0.21')
+    testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '2.0.0-alpha1'
+}
+
+test {
+    useJUnitPlatform()
+}
